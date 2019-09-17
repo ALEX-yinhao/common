@@ -1,0 +1,2 @@
+time="2019-09-17T16:14:21+08:00" level=info msg=hhh
+time="2019-09-17T16:14:21+08:00" level=info msg="map[http:map[addr:0.0.0.0 port:12710] log:map[LogDir:./log/ LogPrefix:test LogSize:100 LogSuffix:.log]]"
