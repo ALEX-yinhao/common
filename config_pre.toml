@@ -1,0 +1,9 @@
+[http]
+    addr = "0.0.0.0"
+    port = 12710
+
+[log]
+    LogDir = "./log/"
+    LogPrefix = "test"
+    LogSuffix = ".log"
+    LogSize = 100

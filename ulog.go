@@ -10,19 +10,22 @@ import (
 
 var Log = logrus.New()
 
-func InitLog(path string, prefix string, suffix string, size int) {
+func InitLog(path string, prefix string, suffix string, size int) error {
 
 	file, err := os.OpenFile(path + prefix + "_" + time.Now().Format("20060102150405") + suffix, os.O_WRONLY | os.O_APPEND | os.O_CREATE | os.O_SYNC, 0600)
 	if err != nil {
-		Log.Fatal("log  init failed")
+		Log.Fatal("log  init failed : ", err)
+		return err
 	}
 
 	info, err := file.Stat()
 	if err != nil {
 		Log.Fatal(err)
+		return err
 	}
 	fileWriter := logFileWriter{file, info.Size(), path, prefix, suffix, int64(size)}
 	Log.SetOutput(&fileWriter)
+	return nil
 }
 
 type logFileWriter struct {
